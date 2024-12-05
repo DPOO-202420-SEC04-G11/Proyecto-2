@@ -1,38 +1,42 @@
 
 package model;
 
-public class Tarea extends Actividad {
-    private String estado;
+import java.util.List;
+
+public class Tarea extends Actividades {
+    private String estadoEntrega;
     private String resultado;
     
-    public Tarea(String descripcion, String objetivo, String dificultad, int duracion, String estado, String resultado) {
-        super(descripcion, objetivo, dificultad, duracion);
-        this.estado = estado;
+    public Tarea(String descripcion, String objetivo, String dificultad, int duracion, List<Actividades> prerequisitos, String titulo) {
+        super(descripcion, objetivo, dificultad, duracion, prerequisitos, titulo);
+        this.estadoEntrega = estadoEntrega;
         this.resultado = resultado;
     }
     
-    public void enviarTarea() {
-        // Lógica para enviar tarea
-    }
-    
-    public void marcarRevisada() {
-        // Lógica para marcar la tarea como revisada
-    }
-    
-    @Override
-    public void marcarComoCompletada() {
-        // Lógica para marcar como completada
+    public boolean Terminado() {
+        if (estadoEntrega.equals("recibido") && resultado.equals("validado")) {
+            return true;
+        }
+        return false;
     }
 
-    @Override
-    public boolean validarPrerrequisitos(Object actividadesCompletadas) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'validarPrerrequisitos'");
+    public String getEstadoEntrega() {
+        return estadoEntrega;
     }
 
-    @Override
-    protected String getDescripcion() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getDescripcion'");
+    public void setEstadoEntrega(String estadoEntrega) {
+        this.estadoEntrega = estadoEntrega;
+    }
+
+    public String getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(String resultado) {
+        this.resultado = resultado;
+    }
+
+    public void crearActividad() {
+        throw new UnsupportedOperationException("Unimplemented method 'crearActividad'");
     }
 }

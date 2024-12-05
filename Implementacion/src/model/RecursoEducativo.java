@@ -1,30 +1,41 @@
 
 package model;
 
-public class RecursoEducativo extends Actividad {
+import java.util.List;
+
+public class RecursoEducativo extends Actividades {
     private String tipoRecurso;
-    private String urlRecurso;
+    private String url;
     
-    public RecursoEducativo(String descripcion, String objetivo, String dificultad, int duracion, String tipoRecurso, String urlRecurso) {
-        super(descripcion, objetivo, dificultad, duracion);
+    public RecursoEducativo(String descripcion, String objetivo, String dificultad, int duracion, List<Actividades> prerequisitos, String titulo, String tipoRecurso, String url) {
+        super(descripcion, objetivo, dificultad, duracion, prerequisitos, titulo);
         this.tipoRecurso = tipoRecurso;
-        this.urlRecurso = urlRecurso;
+        this.url = url;
     }
     
-    @Override
-    public void marcarComoCompletada() {
-        // Lógica para marcar el recurso como completado
+    public boolean clickeado() {
+        return (url != null && !url.isEmpty());
     }
 
-    @Override
-    public boolean validarPrerrequisitos(Object actividadesCompletadas) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'validarPrerrequisitos'");
+    public String getTipoRecurso() {
+        return tipoRecurso;
     }
 
-    @Override
-    protected String getDescripcion() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getDescripcion'");
+    public void setTipoRecurso(String tipoRecurso) {
+        this.tipoRecurso = tipoRecurso;
     }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void crearActividad() {
+        throw new UnsupportedOperationException("Unimplemented method 'crearActividad'");
+    }
+
+
 }

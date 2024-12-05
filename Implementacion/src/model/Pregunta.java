@@ -4,16 +4,29 @@ package model;
 import java.util.List;
 
 public class Pregunta {
-    private String texto;
+    private String pregunta;
     private List<String> opciones;
-    private String respuestaCorrecta;
+    private boolean respuestaCorrecta;
+    private int puntaje;
     private String explicacion;
     
-    public Pregunta(String texto, List<String> opciones, String respuestaCorrecta, String explicacion) {
-        this.texto = texto;
+    public Pregunta(String pregunta, List<String> opciones, boolean respuestaCorrecta,int puntaje,  String explicacion) {
+        this.pregunta = pregunta;
         this.opciones = opciones;
         this.respuestaCorrecta = respuestaCorrecta;
         this.explicacion = explicacion;
+    }
+
+    public String getPregunta() {
+        return pregunta;
+    }
+
+    public boolean isRespuestaCorrecta() {
+        return respuestaCorrecta;
+    }
+
+    public int getPuntaje() {
+        return puntaje;
     }
     
     public boolean validarRespuesta(String respuestaSeleccionada) {
@@ -24,8 +37,7 @@ public class Pregunta {
         return explicacion;
     }
     
-    // Métodos de acceso
-    public String getTexto() { return texto; }
+    public String getTexto() { return pregunta; }
     public List<String> getOpciones() { return opciones; }
     public String getRespuestaCorrecta() { return respuestaCorrecta; }
     public String getExplicacion() { return explicacion; }
